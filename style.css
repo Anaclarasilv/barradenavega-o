@@ -1,0 +1,90 @@
+/*importa a fonte "Oswald" do Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+/* Defina variaveis de cres usandp a pseudo-classe :root*/
+
+:root{--background: #000;
+    --text: #fff;
+    --highlight: #ff1ead;
+}
+/*Estiliza o corpo da pagina*/
+body{
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: 0.5s background ease;/* transição da cor de fundo*/
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.theme-switch{
+    --background: #fff;
+    --text:#000;
+    color: var(--text);
+    width: 70px;
+    height: 30px;
+    background: var(--highlight);
+    border-radius: 50px;
+    position: relative;
+}
+.theme-switch .switch{
+    background: white;
+    width: 24px;
+    height: 24px;
+    background: var(--background);
+    border-radius: 100%;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    transform: 0.5s all ease;
+}
+.light-theme{
+    --background: #fff;
+    --text:#000;
+    background: var(--background);
+}
+.light-theme .theme-switch .switch{
+    transform: translateX(37px);
+
+}
+.navigation{
+    display: flex;
+    justify-content: center;
+}
+ul{
+    display: flex;
+    list-style-type: none;    
+}
+ul a{
+   margin: 10px 30px;
+   position: relative;
+   color: var(--text);
+   font-size: 20px;
+   text-transform: uppercase;
+   text-decoration: none;
+}
+ul a:before{
+    position: absolute;
+    bottom: -2px;
+    width: 100px;
+    height: 3px;
+    background: var(--highlight);
+    transform: translateX(-100%);
+    opacity: 0;
+}
+ul a:hover:before{
+    opacity: 1;
+    transition: 0.5 transform aese, 0.8 opacity aese;
+    transform: rotateX(0);
+}
+ul .active{
+    color: var(--highlight);
+}
+ul .active:hover:before{
+    opacity: 0;
+}
